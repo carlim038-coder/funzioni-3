@@ -1,24 +1,30 @@
-function contaCifre(numero) {
-  // Verifichiamo se il numero è superiore a 9999
-  if (numero > 9999) {
+function contaCifre(num) {
+  // 1. Controllo limite massimo
+  if (num > 9999) {
     return "Numero troppo grande";
   }
 
-  // condizioni per determinare il numero di cifre
-  if (numero >= 0 && numero <= 9) {
+ 
+  if (num < 10) {
     return "1 cifra";
-  } else if (numero >= 10 && numero <= 99) {
+  } 
+  
+  if (num < 100) {
     return "2 cifre";
-  } else if (numero >= 100 && numero <= 999) {
+  } 
+  
+  if (num < 1000) {
     return "3 cifre";
-  } else if (numero >= 1000 && numero <= 9999) {
-    return "4 cifre";
-  } else {
-    return "Input non valido";
-  }
+  } 
+  
+  // Se arriviamo qui, il numero è compreso tra 1000 e 9999
+  return "4 cifre";
 }
 
-console.log(contaCifre(5));     
-console.log(contaCifre(39));   
-console.log(contaCifre(456)); 
-console.log(contaCifre(22000)); 
+// Esempi di test
+console.log(contaCifre(5));     // 1 cifra
+console.log(contaCifre(55));    // 2 cifre
+console.log(contaCifre(555));   // 3 cifre
+console.log(contaCifre(5555));  // 4 cifre
+console.log(contaCifre(10000)); // Numero troppo grande
+
